@@ -8,3 +8,8 @@ C:\Users\Andrew\source\repos\SoulSpiral-Official\BenLincoln.Data\bin\Release\Ben
 C:\Users\Andrew\source\repos\SoulSpiral-Official\BenLincoln.Data\obj\Release\BenLincoln.Data.csproj.CoreCompileInputs.cache
 C:\Users\Andrew\source\repos\SoulSpiral-Official\BenLincoln.Data\obj\Release\BenLincoln.Data.dll
 C:\Users\Andrew\source\repos\SoulSpiral-Official\BenLincoln.Data\obj\Release\BenLincoln.Data.pdb
+C:\Users\Andrew\source\repos\SoulSpiral-AMF\BenLincoln.Data\bin\Release\BenLincoln.Data.dll
+C:\Users\Andrew\source\repos\SoulSpiral-AMF\BenLincoln.Data\bin\Release\BenLincoln.Data.pdb
+C:\Users\Andrew\source\repos\SoulSpiral-AMF\BenLincoln.Data\obj\Release\BenLincoln.Data.csproj.CoreCompileInputs.cache
+C:\Users\Andrew\source\repos\SoulSpiral-AMF\BenLincoln.Data\obj\Release\BenLincoln.Data.dll
+C:\Users\Andrew\source\repos\SoulSpiral-AMF\BenLincoln.Data\obj\Release\BenLincoln.Data.pdb

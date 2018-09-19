@@ -87,6 +87,7 @@ namespace SoulSpiral
             this.pnlMain = new System.Windows.Forms.Panel();
             this.splitMain = new System.Windows.Forms.SplitContainer();
             this.tvBigfile = new System.Windows.Forms.TreeView();
+            this.cbBigfile = new System.Windows.Forms.ComboBox();
             this.txtMain = new System.Windows.Forms.TextBox();
             this.pnlButtons.SuspendLayout();
             this.gboButtons.SuspendLayout();
@@ -387,7 +388,7 @@ namespace SoulSpiral
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMain.Location = new System.Drawing.Point(0, 66);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(991, 472);
+            this.pnlMain.Size = new System.Drawing.Size(991, 430);
             this.pnlMain.TabIndex = 1;
             // 
             // splitMain
@@ -399,22 +400,44 @@ namespace SoulSpiral
             // splitMain.Panel1
             // 
             this.splitMain.Panel1.Controls.Add(this.tvBigfile);
+            this.splitMain.Panel1.Controls.Add(this.cbBigfile);
             // 
             // splitMain.Panel2
             // 
             this.splitMain.Panel2.Controls.Add(this.txtMain);
-            this.splitMain.Size = new System.Drawing.Size(991, 472);
+            this.splitMain.Size = new System.Drawing.Size(991, 430);
             this.splitMain.SplitterDistance = 269;
             this.splitMain.TabIndex = 0;
             // 
             // tvBigfile
             // 
             this.tvBigfile.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tvBigfile.Location = new System.Drawing.Point(0, 0);
+            this.tvBigfile.Location = new System.Drawing.Point(0, 21);
             this.tvBigfile.Name = "tvBigfile";
-            this.tvBigfile.Size = new System.Drawing.Size(269, 472);
-            this.tvBigfile.TabIndex = 0;
+            this.tvBigfile.Size = new System.Drawing.Size(269, 409);
+            this.tvBigfile.TabIndex = 1;
             this.tvBigfile.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvBigfile_AfterSelect);
+            // 
+            // cbBigfile
+            // 
+            this.cbBigfile.Dock = System.Windows.Forms.DockStyle.Top;
+            this.cbBigfile.FormattingEnabled = true;
+            this.cbBigfile.Items.AddRange(new object[] {
+            ".crm",
+            ".dat",
+            ".dds",
+            ".drm",
+            ".mus",
+            ".pcm",
+            ".raw",
+            ".sam",
+            ".snd",
+            ".vrm"});
+            this.cbBigfile.Location = new System.Drawing.Point(0, 0);
+            this.cbBigfile.Name = "cbBigfile";
+            this.cbBigfile.Size = new System.Drawing.Size(269, 21);
+            this.cbBigfile.TabIndex = 0;
+            this.cbBigfile.TextChanged += new System.EventHandler(this.cbBigfile_TextChanged);
             // 
             // txtMain
             // 
@@ -428,7 +451,7 @@ namespace SoulSpiral
             this.txtMain.Name = "txtMain";
             this.txtMain.ReadOnly = true;
             this.txtMain.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtMain.Size = new System.Drawing.Size(718, 472);
+            this.txtMain.Size = new System.Drawing.Size(718, 430);
             this.txtMain.TabIndex = 0;
             this.txtMain.WordWrap = false;
             // 
@@ -436,7 +459,7 @@ namespace SoulSpiral
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(991, 538);
+            this.ClientSize = new System.Drawing.Size(991, 496);
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.pnlButtons);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -495,6 +518,7 @@ namespace SoulSpiral
         private System.Windows.Forms.MenuItem menuItem1;
         private System.Windows.Forms.MenuItem mnuParseNames;
         private System.Windows.Forms.MenuItem mnuAlwaysUseHash;
+        private System.Windows.Forms.ComboBox cbBigfile;
     }
 }
 

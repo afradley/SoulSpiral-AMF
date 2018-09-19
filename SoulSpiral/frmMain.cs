@@ -44,6 +44,7 @@ namespace SoulSpiral
 
         protected BF.BigFile.DirectoryModes mDirectoryMode;
         protected bool mParseNamesFromKnownFileTypes;
+        protected TreeNode treeNodes;
 
         UI.ProgressWindow progressWindow;
         DirectoryExporter mExporter;
@@ -420,9 +421,12 @@ namespace SoulSpiral
         //eventually this will switch between raw and normal modes, just raw for now.
         public void BuildTreeview()
         {
-            tvBigfile.Nodes.Clear();
             mTVLookupTable = new Hashtable();
-            tvBigfile.Nodes.Add(getIndexNodes(mBigFile.MasterDirectory, "\\"));
+            treeNodes = getIndexNodes(mBigFile.MasterDirectory, "\\");
+            tvBigfile.Nodes.Clear();
+            tvBigfile.Nodes.Add((TreeNode)treeNodes.Clone());
+            filterIndexNodes(tvBigfile.Nodes);
+            tvBigfile.ExpandAll();
         }
 
         public TreeNode getIndexNodes(BF.Directory currentDir, string currentPath)
@@ -448,6 +452,28 @@ namespace SoulSpiral
             }
 
             return returnNode;
+        }
+
+        private void filterIndexNodes(TreeNodeCollection treeNodes)
+        {
+            List<TreeNode> nodesToRemove = new List<TreeNode>();
+            foreach (TreeNode treeNode in treeNodes)
+            {
+                filterIndexNodes(treeNode.Nodes);
+
+                if (treeNode.Nodes.Count == 0 &&
+                    !treeNode.Text.EndsWith("\\") &&
+                    !treeNode.Text.Contains(cbBigfile.Text))
+                {
+                    nodesToRemove.Add(treeNode);
+                }
+            }
+
+            while (nodesToRemove.Count > 0)
+            {
+                nodesToRemove[0].Remove();
+                nodesToRemove.RemoveAt(0);
+            }
         }
 
         #region Menu/Button Functions
@@ -591,6 +617,17 @@ namespace SoulSpiral
             if (info != null)
             {
                 txtMain.Text = info;
+            }
+        }
+
+        private void cbBigfile_TextChanged(object sender, EventArgs e)
+        {
+            if (treeNodes != null)
+            {
+                tvBigfile.Nodes.Clear();
+                tvBigfile.Nodes.Add((TreeNode)treeNodes.Clone());
+                filterIndexNodes(tvBigfile.Nodes);
+                tvBigfile.ExpandAll();
             }
         }
 
@@ -838,7 +875,6 @@ namespace SoulSpiral
             Invoke(new MethodInvoker(EnableAllControls));
             Invoke(new MethodInvoker(EnableExportAll));
         }
-
 
         protected void ExportIndexData()
         {
@@ -1090,8 +1126,5 @@ namespace SoulSpiral
         }
 
         #endregion
-
-
-
     }
 }
