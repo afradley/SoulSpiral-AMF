@@ -156,6 +156,7 @@
     <Content Include="Resources\Hashes-SR2_Air_Forge.txt" />
     <None Include="Resources\Question.PNG" />
     <None Include="Resources\SoulSpiral-Crop.JPG" />
+    <Content Include="Resources\Hashes-TRL.txt" />
     <Content Include="Resources\SoulSpiral-Icon3.ICO" />
     <Content Include="Resources\Uranus Symbol - First Render-Front.ICO" />
     <Content Include="Resources\Uranus Symbol - Icon.ICO" />

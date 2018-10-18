@@ -7,14 +7,14 @@ using BF = BenLincoln.TheLostWorlds.CDBigFile;
 
 namespace BenLincoln.TheLostWorlds.CDBigFile
 {
-    public class BigFileTypeTombRaiderLegendPlayStation2 : BigFileType
+    public class BigFileTypeTombRaiderLegendPC : BigFileType
     {
-        public BigFileTypeTombRaiderLegendPlayStation2()
+        public BigFileTypeTombRaiderLegendPC()
             : base()
         {
-            Name = "TRLPS2";
-            Description = "Tomb Raider: Legend (PlayStation 2/PSP)";
-            MasterIndexType = IndexType.TRLPS2;
+            Name = "TRLPC";
+            Description = "Tomb Raider: Legend (PC)";
+            MasterIndexType = IndexType.TRLPC;
             HashLookupTable = new FlatFileHashLookupTable("TRL", Path.Combine(mDLLPath, "Hashes-TRL.txt"));
             FileTypes = new FileType[]
             {

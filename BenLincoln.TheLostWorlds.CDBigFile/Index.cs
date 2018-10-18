@@ -49,7 +49,8 @@ namespace BenLincoln.TheLostWorlds.CDBigFile
         MadDashRacingBigFile,
         WhiplashBigFile,
         TRLPS2Demo,
-        TRLPS2
+        TRLPS2,
+        TRLPC
     }
 
     public class Index
@@ -98,6 +99,7 @@ namespace BenLincoln.TheLostWorlds.CDBigFile
         public const int itSoulReaver2PC = 550;
         public const int itTombRaiderLegendPlayStation2Demo = 600;
         public const int itTombRaiderLegendPlayStation2 = 650;
+        public const int itTombRaiderLegendPC = 700;
         public const int itSoulReaverPlayStationMainIndex = 2100;
         public const int itSoulReaverPlayStationSubIndex = 2150;
         public const int itSoulReaverPlayStationPALRetailMainIndex = 2200;
@@ -692,6 +694,17 @@ namespace BenLincoln.TheLostWorlds.CDBigFile
                     //this index type uses offset values divided by 2048
                     ixfSI650.OffsetMultiplier = 2048;
                     return ixfSI650;
+                    break;
+                case IndexType.TRLPC:
+                    //BF.FileIndexWithSeparateHashes ixfSI700;
+                    //ixfSI700 = new BF.FileIndexWithSeparateHashes("Index", bigfile, null, 0);
+                    BF.TombRaiderLegendPCFileIndex ixfSI700;
+                    ixfSI700 = new BF.TombRaiderLegendPCFileIndex("Index", bigfile, null, 0);
+                    ixfSI700.EntryLength = 4;
+                    ixfSI700.LengthPosition = 0;
+                    ixfSI700.OffsetPosition = 1;
+                    ixfSI700.CompressedLengthPosition = 3;
+                    return ixfSI700;
                     break;
                 case IndexType.MadDashRacingBigFile:
                     BF.MadDashRacingBigFileIndex ixfBloodOmen2FileIndex;

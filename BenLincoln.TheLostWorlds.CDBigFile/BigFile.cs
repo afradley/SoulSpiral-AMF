@@ -442,9 +442,9 @@ namespace BenLincoln.TheLostWorlds.CDBigFile
             //{
             //    bftGex1PlayStation, bftGex1Saturn, bftBloodOmen, bftGex2, bftGex3, bftAkuji, bftSoulReaverProto1Demo, bftSoulReaverPlayStation,
             //    bftSoulReaverPlayStationPALPrereleaseJuly1999, bftSoulReaverPlayStationPALRetail, bftSoulReaverPC, bftSoulReaverDreamcast, 
-            //    bftSoulReaver2AirForgeDemo, bftSoulReaver2PlayStation2, 
-            //    bftSoulReaver2PC, bftDefiancePlayStation2, bftDefiancePC, bftTombRaiderLegendPlayStation2Demo, bftTombRaiderLegendPlayStation2, bftBloodOmen2
-            //}; 
+            //    bftSoulReaver2AirForgeDemo, bftSoulReaver2PlayStation2, bftSoulReaver2PC, bftDefiancePlayStation2, bftDefiancePC,
+            //    bftTombRaiderLegendPlayStation2Demo, bftTombRaiderLegendPlayStation2, bftTombRaiderLegendPC, bftBloodOmen2
+            //};
 
             mBigFileTypes = BigFileType.GetAllTypes();
 

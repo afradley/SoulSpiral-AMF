@@ -7,3 +7,12 @@ C:\Users\Andrew\source\repos\SoulSpiral-Official\BenLincoln.TheLostWorlds.CDBigF
 C:\Users\Andrew\source\repos\SoulSpiral-Official\BenLincoln.TheLostWorlds.CDBigFile\obj\Release\BenLincoln.TheLostWorlds.CDBigFile.csproj.CopyComplete
 C:\Users\Andrew\source\repos\SoulSpiral-Official\BenLincoln.TheLostWorlds.CDBigFile\obj\Release\BenLincoln.TheLostWorlds.CDBigFile.dll
 C:\Users\Andrew\source\repos\SoulSpiral-Official\BenLincoln.TheLostWorlds.CDBigFile\obj\Release\BenLincoln.TheLostWorlds.CDBigFile.pdb
+C:\Users\Andrew\source\repos\SoulSpiral-AMF\BenLincoln.TheLostWorlds.CDBigFile\bin\Release\BenLincoln.TheLostWorlds.CDBigFile.dll
+C:\Users\Andrew\source\repos\SoulSpiral-AMF\BenLincoln.TheLostWorlds.CDBigFile\bin\Release\BenLincoln.TheLostWorlds.CDBigFile.pdb
+C:\Users\Andrew\source\repos\SoulSpiral-AMF\BenLincoln.TheLostWorlds.CDBigFile\bin\Release\BenLincoln.Data.dll
+C:\Users\Andrew\source\repos\SoulSpiral-AMF\BenLincoln.TheLostWorlds.CDBigFile\bin\Release\BenLincoln.Data.pdb
+C:\Users\Andrew\source\repos\SoulSpiral-AMF\BenLincoln.TheLostWorlds.CDBigFile\obj\Release\BenLincoln.TheLostWorlds.CDBigFile.csprojResolveAssemblyReference.cache
+C:\Users\Andrew\source\repos\SoulSpiral-AMF\BenLincoln.TheLostWorlds.CDBigFile\obj\Release\BenLincoln.TheLostWorlds.CDBigFile.csproj.CoreCompileInputs.cache
+C:\Users\Andrew\source\repos\SoulSpiral-AMF\BenLincoln.TheLostWorlds.CDBigFile\obj\Release\BenLincoln.TheLostWorlds.CDBigFile.csproj.CopyComplete
+C:\Users\Andrew\source\repos\SoulSpiral-AMF\BenLincoln.TheLostWorlds.CDBigFile\obj\Release\BenLincoln.TheLostWorlds.CDBigFile.dll
+C:\Users\Andrew\source\repos\SoulSpiral-AMF\BenLincoln.TheLostWorlds.CDBigFile\obj\Release\BenLincoln.TheLostWorlds.CDBigFile.pdb

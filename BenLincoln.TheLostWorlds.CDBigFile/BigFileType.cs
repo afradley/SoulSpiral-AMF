@@ -204,6 +204,10 @@ namespace BenLincoln.TheLostWorlds.CDBigFile
             result.BigFileTypeHash.Add(bftTombRaiderLegendPlayStation2.Name, bftTombRaiderLegendPlayStation2);
             nameList.Add(bftTombRaiderLegendPlayStation2.Name);
 
+            BF.BigFileTypeTombRaiderLegendPC bftTombRaiderLegendPC = new BigFileTypeTombRaiderLegendPC();
+            result.BigFileTypeHash.Add(bftTombRaiderLegendPC.Name, bftTombRaiderLegendPC);
+            nameList.Add(bftTombRaiderLegendPC.Name);
+
             /* BF.BigFileTypeWhiplashBigFile bftWhiplashBigFile = new BigFileTypeWhiplashBigFile();
             result.BigFileTypeHash.Add(bftWhiplashBigFile.Name, bftWhiplashBigFile);
             nameList.Add(bftWhiplashBigFile.Name); */

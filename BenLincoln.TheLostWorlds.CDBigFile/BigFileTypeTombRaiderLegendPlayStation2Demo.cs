@@ -15,6 +15,7 @@ namespace BenLincoln.TheLostWorlds.CDBigFile
             Name = "TRLPS2Demo";
             Description = "Tomb Raider: Legend Demo (PlayStation 2)";
             MasterIndexType = IndexType.TRLPS2;
+            HashLookupTable = new FlatFileHashLookupTable("TRL", Path.Combine(mDLLPath, "Hashes-TRL.txt"));
             FileTypes = new FileType[]
             {
                BF.FileType.FromType(BF.FileType.FILE_TYPE_RAWImage),
