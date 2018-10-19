@@ -38,13 +38,6 @@ namespace SoulSpiral
 {
     public partial class frmMain : Form
     {
-        protected enum PathType : int
-        {
-            Root,
-            Folder,
-            File
-        }
-
         protected BF.BigFile mBigFile;
         protected Hashtable mTVLookupTable;
         protected bool mHashLookupFileIsPresent;
@@ -141,6 +134,7 @@ namespace SoulSpiral
         {
             this.mnuExport.Enabled = false;
             this.mnuImport.Enabled = false;
+            this.mnuContext.Enabled = false;
             this.mnuReplace.Enabled = false;
             this.mnuHexEdit.Enabled = false;
             this.btnExport.Enabled = false;
@@ -153,6 +147,7 @@ namespace SoulSpiral
         {
             this.mnuExport.Enabled = true;
             this.mnuImport.Enabled = true;
+            this.mnuContext.Enabled = true;
             this.btnOpen.Enabled = true;
         }
 
@@ -184,46 +179,62 @@ namespace SoulSpiral
         {
             this.btnExport.Enabled = false;
             this.mnuExportCurrent.Enabled = false;
+            this.exportToolStripMenuItem.Enabled = false;
+            this.exportToolStripMenuItem.Visible = false;
         }
 
         protected void EnableExportCurrent()
         {
             this.btnExport.Enabled = true;
             this.mnuExportCurrent.Enabled = true;
+            this.exportToolStripMenuItem.Enabled = true;
+            this.exportToolStripMenuItem.Visible = true;
         }
 
         protected void DisableExportDirectory()
         {
             this.mnuExportDirectory.Enabled = false;
+            this.exportAllToolStripMenuItem.Enabled = false;
+            this.exportAllToolStripMenuItem.Visible = false;
         }
 
         protected void EnableExportDirectory()
         {
             this.mnuExportDirectory.Enabled = true;
+            this.exportAllToolStripMenuItem.Enabled = true;
+            this.exportAllToolStripMenuItem.Visible = true;
         }
 
         protected void DisableReplace()
         {
             this.mnuReplace.Enabled = false;
             this.btnReplace.Enabled = false;
+            this.replaceToolStripMenuItem.Enabled = false;
+            this.replaceToolStripMenuItem.Visible = false;
         }
 
         protected void EnableReplace()
         {
             this.mnuReplace.Enabled = true;
             this.btnReplace.Enabled = true;
+            this.replaceToolStripMenuItem.Enabled = true;
+            this.replaceToolStripMenuItem.Visible = true;
         }
 
         protected void DisableHexEdit()
         {
             this.mnuHexEdit.Enabled = false;
             this.btnHexEdit.Enabled = false;
+            this.hexEditToolStripMenuItem.Enabled = false;
+            this.hexEditToolStripMenuItem.Visible = false;
         }
 
         protected void EnableHexEdit()
         {
             this.mnuHexEdit.Enabled = true;
             this.btnHexEdit.Enabled = true;
+            this.hexEditToolStripMenuItem.Enabled = true;
+            this.hexEditToolStripMenuItem.Visible = true;
         }
 
         #region File Open/Export/Replace
@@ -423,7 +434,15 @@ namespace SoulSpiral
 
         #endregion
 
- 
+        #region Tree View
+
+        protected enum PathType : int
+        {
+            Root,
+            Folder,
+            File
+        }
+
         //build the treeview based on the main directory from the bigfile
         //eventually this will switch between raw and normal modes, just raw for now.
         public void BuildTreeview()
@@ -433,7 +452,6 @@ namespace SoulSpiral
             tvBigfile.Nodes.Clear();
             tvBigfile.Nodes.Add((TreeNode)treeNodes.Clone());
             filterIndexNodes(tvBigfile.Nodes);
-            tvBigfile.ExpandAll();
         }
 
         public TreeNode getIndexNodes(BF.Directory currentDir, string currentPath)
@@ -488,6 +506,47 @@ namespace SoulSpiral
                 nodesToRemove.RemoveAt(0);
             }
         }
+
+        private void tvBigfile_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            // Might be better to cache the node than select it.
+            // Export, Replace, Hex Edit would need to accept a parameter.
+            tvBigfile.SelectedNode = e.Node;
+        }
+
+        private void exportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (tvBigfile.SelectedNode != null && (PathType)tvBigfile.SelectedNode.Tag == PathType.File)
+            {
+                ExportCurrentFile();
+            }
+        }
+
+        private void exportAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (tvBigfile.SelectedNode != null && (PathType)tvBigfile.SelectedNode.Tag != PathType.File)
+            {
+                ExportCurrentDirectory();
+            }
+        }
+
+        private void replaceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (tvBigfile.SelectedNode != null && (PathType)tvBigfile.SelectedNode.Tag == PathType.File)
+            {
+                ExportCurrentFile();
+            }
+        }
+
+        private void hexEditToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (tvBigfile.SelectedNode != null && (PathType)tvBigfile.SelectedNode.Tag == PathType.File)
+            {
+                LaunchHexEditor();
+            }
+        }
+
+        #endregion
 
         #region Menu/Button Functions
 
