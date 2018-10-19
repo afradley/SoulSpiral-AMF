@@ -87,6 +87,11 @@ namespace SoulSpiral
             this.pnlMain = new System.Windows.Forms.Panel();
             this.splitMain = new System.Windows.Forms.SplitContainer();
             this.tvBigfile = new System.Windows.Forms.TreeView();
+            this.mnuContext = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.replaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hexEditToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cbBigfile = new System.Windows.Forms.ComboBox();
             this.txtMain = new System.Windows.Forms.TextBox();
             this.pnlButtons.SuspendLayout();
@@ -96,6 +101,7 @@ namespace SoulSpiral
             this.splitMain.Panel1.SuspendLayout();
             this.splitMain.Panel2.SuspendLayout();
             this.splitMain.SuspendLayout();
+            this.mnuContext.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuMain
@@ -411,12 +417,52 @@ namespace SoulSpiral
             // 
             // tvBigfile
             // 
+            this.tvBigfile.ContextMenuStrip = this.mnuContext;
             this.tvBigfile.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tvBigfile.Location = new System.Drawing.Point(0, 21);
             this.tvBigfile.Name = "tvBigfile";
             this.tvBigfile.Size = new System.Drawing.Size(269, 409);
             this.tvBigfile.TabIndex = 1;
             this.tvBigfile.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvBigfile_AfterSelect);
+            this.tvBigfile.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvBigfile_NodeMouseClick);
+            // 
+            // menuContext
+            // 
+            this.mnuContext.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exportToolStripMenuItem,
+            this.exportAllToolStripMenuItem,
+            this.replaceToolStripMenuItem,
+            this.hexEditToolStripMenuItem});
+            this.mnuContext.Name = "menuContext";
+            this.mnuContext.Size = new System.Drawing.Size(125, 92);
+            // 
+            // exportToolStripMenuItem
+            // 
+            this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.exportToolStripMenuItem.Text = "Export";
+            this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportToolStripMenuItem_Click);
+            // 
+            // exportAllToolStripMenuItem
+            // 
+            this.exportAllToolStripMenuItem.Name = "exportAllToolStripMenuItem";
+            this.exportAllToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.exportAllToolStripMenuItem.Text = "Export All";
+            this.exportAllToolStripMenuItem.Click += new System.EventHandler(this.exportAllToolStripMenuItem_Click);
+            // 
+            // replaceToolStripMenuItem
+            // 
+            this.replaceToolStripMenuItem.Name = "replaceToolStripMenuItem";
+            this.replaceToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.replaceToolStripMenuItem.Text = "Replace";
+            this.replaceToolStripMenuItem.Click += new System.EventHandler(this.replaceToolStripMenuItem_Click);
+            // 
+            // hexEditToolStripMenuItem
+            // 
+            this.hexEditToolStripMenuItem.Name = "hexEditToolStripMenuItem";
+            this.hexEditToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.hexEditToolStripMenuItem.Text = "Hex Edit";
+            this.hexEditToolStripMenuItem.Click += new System.EventHandler(this.hexEditToolStripMenuItem_Click);
             // 
             // cbBigfile
             // 
@@ -474,6 +520,7 @@ namespace SoulSpiral
             this.splitMain.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitMain)).EndInit();
             this.splitMain.ResumeLayout(false);
+            this.mnuContext.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -519,6 +566,11 @@ namespace SoulSpiral
         private System.Windows.Forms.MenuItem mnuParseNames;
         private System.Windows.Forms.MenuItem mnuAlwaysUseHash;
         private System.Windows.Forms.ComboBox cbBigfile;
+        private System.Windows.Forms.ContextMenuStrip mnuContext;
+        private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem replaceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hexEditToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exportAllToolStripMenuItem;
     }
 }
 
