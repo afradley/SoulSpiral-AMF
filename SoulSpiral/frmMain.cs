@@ -38,6 +38,13 @@ namespace SoulSpiral
 {
     public partial class frmMain : Form
     {
+        protected enum PathType : int
+        {
+            Root,
+            Folder,
+            File
+        }
+
         protected BF.BigFile mBigFile;
         protected Hashtable mTVLookupTable;
         protected bool mHashLookupFileIsPresent;
@@ -432,6 +439,8 @@ namespace SoulSpiral
         public TreeNode getIndexNodes(BF.Directory currentDir, string currentPath)
         {
             TreeNode returnNode = new TreeNode(currentDir.Name);
+            // Tag is intended to hold user data, so that's what I'm doing here.
+            returnNode.Tag = currentPath == "\\" ? PathType.Root : PathType.Folder;
             mTVLookupTable.Add(currentPath, currentDir);
 
             if ((currentDir.Directories != null) && (currentDir.Directories.Count > 0))
@@ -446,7 +455,10 @@ namespace SoulSpiral
             {
                 foreach (BF.File currentFile in currentDir.Files)
                 {
-                    returnNode.Nodes.Add(currentFile.Name + "." + currentFile.FileExtension);
+                    TreeNode childNode = new TreeNode(currentFile.Name + "." + currentFile.FileExtension);
+                    // Tag is intended to hold user data, so that's what I'm doing here.
+                    childNode.Tag = PathType.File;
+                    returnNode.Nodes.Add(childNode);
                     mTVLookupTable.Add(currentPath + currentFile.Name + "." + currentFile.FileExtension, currentFile);
                 }
             }
@@ -461,9 +473,10 @@ namespace SoulSpiral
             {
                 filterIndexNodes(treeNode.Nodes);
 
-                if (treeNode.Nodes.Count == 0 &&
-                    !treeNode.Text.EndsWith("\\") &&
-                    !treeNode.Text.Contains(cbBigfile.Text))
+                // This makes sure empty folders *except* Default and Bigfile are removed
+                // as well as files that don't match.
+                if (((PathType)treeNode.Tag == PathType.Folder && treeNode.Nodes.Count == 0) ||
+                    ((PathType)treeNode.Tag == PathType.File && !treeNode.Text.Contains(cbBigfile.Text)))
                 {
                     nodesToRemove.Add(treeNode);
                 }

@@ -5,3 +5,10 @@ C:\Users\Andrew\source\repos\SoulSpiral-Official\AndrewFradley.HexPanel\obj\Debu
 C:\Users\Andrew\source\repos\SoulSpiral-Official\AndrewFradley.HexPanel\obj\Debug\AndrewFradley.HexPanel.csproj.CoreCompileInputs.cache
 C:\Users\Andrew\source\repos\SoulSpiral-Official\AndrewFradley.HexPanel\obj\Debug\AndrewFradley.HexPanel.dll
 C:\Users\Andrew\source\repos\SoulSpiral-Official\AndrewFradley.HexPanel\obj\Debug\AndrewFradley.HexPanel.pdb
+C:\Users\Andrew\source\repos\SoulSpiral-AMF\AndrewFradley.HexPanel\bin\Debug\AndrewFradley.HexPanel.dll
+C:\Users\Andrew\source\repos\SoulSpiral-AMF\AndrewFradley.HexPanel\bin\Debug\AndrewFradley.HexPanel.pdb
+C:\Users\Andrew\source\repos\SoulSpiral-AMF\AndrewFradley.HexPanel\obj\Debug\HexEditor.HexPanel.resources
+C:\Users\Andrew\source\repos\SoulSpiral-AMF\AndrewFradley.HexPanel\obj\Debug\AndrewFradley.HexPanel.csproj.GenerateResource.cache
+C:\Users\Andrew\source\repos\SoulSpiral-AMF\AndrewFradley.HexPanel\obj\Debug\AndrewFradley.HexPanel.csproj.CoreCompileInputs.cache
+C:\Users\Andrew\source\repos\SoulSpiral-AMF\AndrewFradley.HexPanel\obj\Debug\AndrewFradley.HexPanel.dll
+C:\Users\Andrew\source\repos\SoulSpiral-AMF\AndrewFradley.HexPanel\obj\Debug\AndrewFradley.HexPanel.pdb
