@@ -1067,7 +1067,7 @@ namespace SoulSpiral
             }
 
             frmHexEdit hexEdit = new frmHexEdit();
-            hexEdit.LoadFile(mBigFile.Path, xFile, false);
+            hexEdit.LoadFile(xFile.BigFilePath, xFile, false);
             hexEdit.Show();
         }
 

@@ -50,7 +50,7 @@ namespace BenLincoln.TheLostWorlds.CDBigFile
         public TombRaiderLegendPCFileIndex(string name, BF.BigFile parentBigFile, BF.Index parentIndex, long offset)
             : base(name, parentBigFile, parentIndex, offset)
         {
-            mCompressedLengthPosition = 2;
+            mCompressedLengthPosition = 3;
         }
 
         public override void ReadIndex()
@@ -63,11 +63,11 @@ namespace BenLincoln.TheLostWorlds.CDBigFile
                 BF.File tFile;
                 if (mEntries[i][mCompressedLengthPosition] > 0)
                 {
-                    tFile = new BF.CompressedFile(mParentBigFile, this, mEntries[i], mHashes[i], mOffsetPosition, mLengthPosition, mCompressedLengthPosition);
+                    tFile = new BF.TombRaiderLegendPCCompressedFile(mParentBigFile, this, mEntries[i], mHashes[i], mOffsetPosition, mLengthPosition, mCompressedLengthPosition);
                 }
                 else
                 {
-                    tFile = new BF.File(mParentBigFile, this, mEntries[i], mHashes[i], mOffsetPosition, mLengthPosition);
+                    tFile = new BF.TombRaiderLegendPCFile(mParentBigFile, this, mEntries[i], mHashes[i], mOffsetPosition, mLengthPosition);
                 }
                 Files[i] = tFile;
                 if (i > 0)

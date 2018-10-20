@@ -47,6 +47,11 @@ namespace BenLincoln.TheLostWorlds.CDBigFile
 
         #endregion
 
+        protected CompressedFile()
+        {
+
+        }
+
         public CompressedFile(BF.BigFile parent, BF.Index parentIndex, uint[] rawIndexData, int hashNamePosition, int offsetPosition, int lengthPosition, int compressedLengthPosition)
             : base(parent, parentIndex, rawIndexData, hashNamePosition, offsetPosition, lengthPosition)
         {
@@ -92,7 +97,7 @@ namespace BenLincoln.TheLostWorlds.CDBigFile
         //    byte[] decompressedData;
 
         //    //read in the compressed data
-        //    iStream = new FileStream(mParentBigFile.Path, FileMode.Open, FileAccess.Read);
+        //    iStream = new FileStream(mBigFilePath, FileMode.Open, FileAccess.Read);
         //    iReader = new BinaryReader(iStream);
         //    iStream.Seek(mOffset, SeekOrigin.Begin);
 
@@ -261,7 +266,7 @@ namespace BenLincoln.TheLostWorlds.CDBigFile
             byte[] decompressedData;
 
             //read in the compressed data
-            iStream = new FileStream(mParentBigFile.Path, FileMode.Open, FileAccess.Read);
+            iStream = new FileStream(mBigFilePath, FileMode.Open, FileAccess.Read);
             iReader = new BinaryReader(iStream);
             iStream.Seek(mOffset, SeekOrigin.Begin);
 
@@ -435,15 +440,15 @@ namespace BenLincoln.TheLostWorlds.CDBigFile
             {
                 mIsValidReference = false;
             }
-            if (mOffset > mParentBigFile.FileSize)
+            if (mOffset > mBigFileSize)
             {
                 mIsValidReference = false;
             }
-            if (mLength > mParentBigFile.FileSize)
+            if (mLength > mBigFileSize)
             {
                 mIsValidReference = false;
             }
-            if ((mOffset + mCompressedLength) > mParentBigFile.FileSize)
+            if ((mOffset + mCompressedLength) > mBigFileSize)
             {
                 mIsValidReference = false;
             }

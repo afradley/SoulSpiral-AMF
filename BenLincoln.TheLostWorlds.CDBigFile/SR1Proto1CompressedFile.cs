@@ -140,7 +140,7 @@ namespace BenLincoln.TheLostWorlds.CDBigFile
             //FileStream oStream;
             //byte[] byteBuffer = new byte[mLength];
 
-            //iStream = new FileStream(mParentBigFile.Path, FileMode.Open, FileAccess.Read);
+            //iStream = new FileStream(mBigFilePath, FileMode.Open, FileAccess.Read);
             //oStream = new FileStream(path, FileMode.Create, FileAccess.Write);
 
             //iStream.Seek(mOffset, SeekOrigin.Begin);
@@ -157,7 +157,7 @@ namespace BenLincoln.TheLostWorlds.CDBigFile
             byte[] decompressedData;
 
             //read in the compressed data
-            iStream = new FileStream(mParentBigFile.Path, FileMode.Open, FileAccess.Read);
+            iStream = new FileStream(mBigFilePath, FileMode.Open, FileAccess.Read);
             iReader = new BinaryReader(iStream);
             iStream.Seek(mOffset, SeekOrigin.Begin);
 

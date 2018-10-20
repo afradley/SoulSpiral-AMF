@@ -152,7 +152,7 @@ namespace BenLincoln.TheLostWorlds.CDBigFile
                     }
                     else
                     {
-                        iStream = new FileStream(checkFile.ParentBigFile.Path, FileMode.Open, FileAccess.Read);
+                        iStream = new FileStream(checkFile.BigFilePath, FileMode.Open, FileAccess.Read);
                         iReader = new BinaryReader(iStream);
                         iStream.Seek(checkFile.Offset + offset, SeekOrigin.Begin);
 
@@ -200,7 +200,7 @@ namespace BenLincoln.TheLostWorlds.CDBigFile
                 }
                 else
                 {
-                    iStream = new FileStream(checkFile.ParentBigFile.Path, FileMode.Open, FileAccess.Read);
+                    iStream = new FileStream(checkFile.BigFilePath, FileMode.Open, FileAccess.Read);
                     iStream.Seek(checkFile.Offset, SeekOrigin.Begin);
                 }
 
@@ -357,7 +357,7 @@ namespace BenLincoln.TheLostWorlds.CDBigFile
                 }
                 else
                 {
-                    iStream = new FileStream(checkFile.ParentBigFile.Path, FileMode.Open, FileAccess.Read);
+                    iStream = new FileStream(checkFile.BigFilePath, FileMode.Open, FileAccess.Read);
                     iStream.Seek(checkFile.Offset, SeekOrigin.Begin);
                     iReader = new BinaryReader(iStream);
                     iStream.Seek(checkFile.Offset + nameOffset, SeekOrigin.Begin);

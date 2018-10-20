@@ -107,7 +107,7 @@ namespace BenLincoln.TheLostWorlds.CDBigFile
 
                 try
                 {
-                    iStream = new FileStream(checkFile.ParentBigFile.Path, FileMode.Open, FileAccess.Read);
+                    iStream = new FileStream(checkFile.BigFilePath, FileMode.Open, FileAccess.Read);
                     iReader = new BinaryReader(iStream);
                     iStream.Seek(checkFile.Offset + offset, SeekOrigin.Begin);
 

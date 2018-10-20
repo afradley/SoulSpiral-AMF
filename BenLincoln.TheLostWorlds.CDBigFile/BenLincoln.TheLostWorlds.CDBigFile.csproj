@@ -98,6 +98,8 @@
     <Compile Include="PandemoniumFileIndex.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SoulReaver2AirForgeDemoFileIndex.cs" />
+    <Compile Include="TombRaiderLegendPCFile.cs" />
+    <Compile Include="TombRaiderLegendPCCompressedFile.cs" />
     <Compile Include="TombRaiderLegendPCFileIndex.cs" />
     <Compile Include="SoulReaver2PS2FileIndex.cs" />
     <Compile Include="SoulReaverPlaystationPAL0x1b71FileIndex.cs" />

@@ -34,6 +34,8 @@ namespace BenLincoln.TheLostWorlds.CDBigFile
             : base()
         {
             mParentBigFile = parent;
+            mBigFilePath = mParentBigFile.Path;
+            mBigFileSize = mParentBigFile.FileSize;
             mParentIndex = parentIndex;
             mRawIndexData = rawIndexData;
 

@@ -48,6 +48,10 @@ namespace BenLincoln.TheLostWorlds.CDBigFile
         protected BF.FileType mType;
         protected bool mCanBeReplaced;
         protected bool mIsValidReference;
+        // The path to the actual bigfile that the file is stored in. May not be the parent.
+        protected string mBigFilePath;
+        // The size of the actual bigfile that the file is stored in. May not be the parent.
+        protected long mBigFileSize;
 
         //number of bytes of the header to read
         //shouldn't be too large because there will be a LOT of these
@@ -101,6 +105,30 @@ namespace BenLincoln.TheLostWorlds.CDBigFile
             set
             {
                 mParentBigFile = value;
+            }
+        }
+
+        public string BigFilePath
+        {
+            get
+            {
+                return mBigFilePath;
+            }
+            set
+            {
+                mBigFilePath = value;
+            }
+        }
+
+        public long BigFileSize
+        {
+            get
+            {
+                return mBigFileSize;
+            }
+            set
+            {
+                mBigFileSize = value;
             }
         }
 
@@ -261,6 +289,8 @@ namespace BenLincoln.TheLostWorlds.CDBigFile
             mNamePrefix = "";
             mNameSuffix = "";
             mParentBigFile = parent;
+            mBigFilePath = mParentBigFile.Path;
+            mBigFileSize = mParentBigFile.FileSize;
             mParentIndex = parentIndex;
             mRawIndexData = rawIndexData;
             uint rawHash = rawIndexData[hashNamePosition];
@@ -284,6 +314,8 @@ namespace BenLincoln.TheLostWorlds.CDBigFile
         public File(BF.BigFile parent, BF.Index parentIndex, uint[] rawIndexData, string hashedName, int offsetPosition, int lengthPosition)
         {
             mParentBigFile = parent;
+            mBigFilePath = mParentBigFile.Path;
+            mBigFileSize = mParentBigFile.FileSize;
             mParentIndex = parentIndex;
             mRawIndexData = rawIndexData;
             mHashedName = hashedName;
@@ -306,6 +338,8 @@ namespace BenLincoln.TheLostWorlds.CDBigFile
         public File(BF.BigFile parent, BF.Index parentIndex, uint[] rawIndexData, int hashNamePosition, int originPosition, int offsetPosition, int lengthPosition)
         {
             mParentBigFile = parent;
+            mBigFilePath = mParentBigFile.Path;
+            mBigFileSize = mParentBigFile.FileSize;
             mParentIndex = parentIndex;
             mRawIndexData = rawIndexData;
             mHashedName = BD.HexConverter.ByteArrayToHexString(BD.BinaryConverter.UIntToByteArray(rawIndexData[hashNamePosition]));
@@ -328,6 +362,8 @@ namespace BenLincoln.TheLostWorlds.CDBigFile
         public File(BF.BigFile parent, BF.Index parentIndex, uint[] rawIndexData, string hashedName, int originPosition, int offsetPosition, int lengthPosition)
         {
             mParentBigFile = parent;
+            mBigFilePath = mParentBigFile.Path;
+            mBigFileSize = mParentBigFile.FileSize;
             mParentIndex = parentIndex;
             mRawIndexData = rawIndexData;
             mHashedName = hashedName;
@@ -359,15 +395,15 @@ namespace BenLincoln.TheLostWorlds.CDBigFile
             {
                 mIsValidReference = false;
             }
-            if (mOffset > mParentBigFile.FileSize)
+            if (mOffset > mBigFileSize)
             {
                 mIsValidReference = false;
             }
-            if (mLength > mParentBigFile.FileSize)
+            if (mLength > mBigFileSize)
             {
                 mIsValidReference = false;
             }
-            if ((mOffset + mLength) > mParentBigFile.FileSize)
+            if ((mOffset + mLength) > mBigFileSize)
             {
                 mIsValidReference = false;
             }
@@ -393,7 +429,7 @@ namespace BenLincoln.TheLostWorlds.CDBigFile
             int headerSize = Math.Min(RAWHEADERSIZE, mLength);
             mRawHeaderData = new byte[headerSize];
 
-            iStream = new FileStream(mParentBigFile.Path, FileMode.Open, FileAccess.Read);
+            iStream = new FileStream(mBigFilePath, FileMode.Open, FileAccess.Read);
  
             iStream.Seek(mOffset, SeekOrigin.Begin);
             iStream.Read(mRawHeaderData, 0, headerSize);
@@ -602,7 +638,7 @@ namespace BenLincoln.TheLostWorlds.CDBigFile
             FileStream oStream;
             byte[] byteBuffer = new byte[mLength];
 
-            iStream = new FileStream(mParentBigFile.Path, FileMode.Open, FileAccess.Read);
+            iStream = new FileStream(mBigFilePath, FileMode.Open, FileAccess.Read);
             oStream = new FileStream(path, FileMode.Create, FileAccess.Write);
 
             iStream.Seek(mOffset, SeekOrigin.Begin);
@@ -644,7 +680,7 @@ namespace BenLincoln.TheLostWorlds.CDBigFile
             FileStream oStream;
             byte[] byteBuffer = new byte[mLength];
 
-            oStream = new FileStream(mParentBigFile.Path, FileMode.Open, FileAccess.Write);
+            oStream = new FileStream(mBigFilePath, FileMode.Open, FileAccess.Write);
             iStream = new FileStream(path, FileMode.Open, FileAccess.Read);
 
             iStream.Seek(0, SeekOrigin.Begin);
